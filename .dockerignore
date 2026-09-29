@@ -1,0 +1,12 @@
+.env
+.venv
+.git
+.gitignore
+__pycache__
+*.pyc
+.pytest_cache
+eval/results
+data/confluence_pages
+data/confluence_ingestion
+data/processed/confluence_chunks.jsonl
+*.tar.gz

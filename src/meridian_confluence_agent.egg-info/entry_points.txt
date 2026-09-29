@@ -1,0 +1,10 @@
+[console_scripts]
+meridian-api = src.run_api:main
+meridian-chunk = src.chunking:main
+meridian-evaluate = eval.run_rag_evaluation:main
+meridian-ingest = src.ingest:main
+meridian-mcp = src.mcp_server:main
+meridian-rag = src.rag_answer:main
+meridian-search = src.baseline_search:main
+meridian-trusted-search = src.trusted_search:main
+meridian-vector-search = src.vector_search:main

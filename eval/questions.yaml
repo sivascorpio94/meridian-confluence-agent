@@ -1,0 +1,69 @@
+- id: mosaic-new-engineer
+  question: "I'm a new engineer. How do I obtain read-only Mosaic UI access?"
+  category: stale-and-unfinished-conflict
+  preferred_pages: [page-01, page-03]
+  relevant_pages: [page-01, page-03]
+  misleading_pages: [page-02, page-04, page-22]
+  required_answer_terms: [MOSAIC_UI_VIEWER, ServiceNow]
+  required_citations: [page-01]
+  expected_warning_pages: [page-02, page-22]
+
+- id: paysure-access
+  question: "What approvals and training are required for PaySure access?"
+  category: draft-conflict
+  preferred_pages: [page-07]
+  relevant_pages: [page-07]
+  misleading_pages: [page-08]
+  required_answer_terms: [PCI, Payments Team Lead, Security/Compliance Officer]
+  required_citations: [page-07]
+  expected_warning_pages: [page-08]
+
+- id: vault-namespace
+  question: "How do I request access to an existing Vault namespace?"
+  category: stale-parent-current-child
+  preferred_pages: [page-15]
+  relevant_pages: [page-15]
+  misleading_pages: [page-14]
+  required_answer_terms: [ServiceNow, Vault Namespace Access, team lead]
+  required_citations: [page-15]
+  expected_warning_pages: []
+
+- id: northstar-sales
+  question: "Who approves Northstar CRM access for a Sales representative?"
+  category: legitimate-department-variation
+  preferred_pages: [page-12, page-11]
+  relevant_pages: [page-11, page-12]
+  misleading_pages: []
+  required_answer_terms: [Sales Ops Manager]
+  required_citations: [page-12]
+  expected_warning_pages: []
+
+- id: northstar-support
+  question: "Who approves Northstar CRM access for a Support agent?"
+  category: legitimate-department-variation
+  preferred_pages: [page-13, page-11]
+  relevant_pages: [page-11, page-13]
+  misleading_pages: []
+  required_answer_terms: [Support Manager]
+  required_citations: [page-13]
+  expected_warning_pages: []
+
+- id: nimbus-routine
+  question: "How does a platform engineer request a normal Nimbus AWS account?"
+  category: valid-but-wrong-context
+  preferred_pages: [page-17]
+  relevant_pages: [page-17]
+  misleading_pages: [page-18]
+  required_answer_terms: [ServiceNow, Nimbus AWS Account Vending, Cloud Platform Team]
+  required_citations: [page-17]
+  expected_warning_pages: []
+
+- id: mosaic-current-procedure
+  question: "What is the current Mosaic UI viewer role and request process?"
+  category: audit-and-keyword-noise
+  preferred_pages: [page-01, page-03]
+  relevant_pages: [page-01, page-03]
+  misleading_pages: [page-02, page-22, page-23]
+  required_answer_terms: [MOSAIC_UI_VIEWER, ServiceNow]
+  required_citations: [page-01]
+  expected_warning_pages: [page-02, page-22]

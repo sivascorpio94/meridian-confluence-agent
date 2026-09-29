@@ -1,0 +1,49 @@
+[project]
+name = "meridian-confluence-agent"
+version = "0.1.0"
+description = "Learning-first enterprise Confluence search and RAG agent"
+requires-python = ">=3.11"
+dependencies = [
+    "PyYAML>=6.0,<7",
+    "boto3>=1.35,<2",
+    "botocore[crt]>=1.35,<2",
+    "pgvector>=0.3,<1",
+    "psycopg[binary]>=3.2,<4",
+    "python-dotenv>=1.0,<2",
+    "fastapi>=0.115,<1",
+    "uvicorn[standard]>=0.34,<1",
+    "mcp[cli]>=2,<3",
+    "httpx>=0.28,<1",
+    "beautifulsoup4>=4.12,<5",
+]
+
+[project.optional-dependencies]
+test = [
+    "httpx2>=2,<3",
+]
+
+[project.scripts]
+meridian-search = "src.baseline_search:main"
+meridian-chunk = "src.chunking:main"
+meridian-ingest = "src.ingest:main"
+meridian-vector-search = "src.vector_search:main"
+meridian-trusted-search = "src.trusted_search:main"
+meridian-rag = "src.rag_answer:main"
+meridian-evaluate = "eval.run_rag_evaluation:main"
+meridian-api = "src.run_api:main"
+meridian-mcp = "src.mcp_server:main"
+meridian-agent = "src.mcp_agent:main"
+meridian-confluence-sync = "src.confluence_sync:main"
+meridian-refresh = "src.refresh_knowledge:main"
+
+# This repository intentionally uses `src` as the Python package name.  Declare
+# packages explicitly because setuptools otherwise interprets `src/` as a
+# source-layout directory and creates an editable install containing no `src`
+# package.  MCP Inspector launches the server from an isolated uv environment,
+# so it cannot rely on the repository root being present on sys.path.
+[tool.setuptools]
+packages = ["src", "eval", "experiments"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,9 @@
+.env
+eval/results/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# Generated Confluence content
+data/confluence_pages/
+

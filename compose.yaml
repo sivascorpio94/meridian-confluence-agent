@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.6-pg16
+    container_name: meridian-pgvector
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?Set POSTGRES_DB in .env}
+      POSTGRES_USER: ${POSTGRES_USER:?Set POSTGRES_USER in .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - meridian_pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: meridian-api
+    environment:
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      RAG_SOURCE_SCOPE: ${RAG_SOURCE_SCOPE:-confluence_cloud}
+      AWS_PROFILE: ${AWS_PROFILE:-default}
+      AWS_REGION: ${AWS_REGION:-us-east-2}
+      BEDROCK_CHAT_MODEL_ID: ${BEDROCK_CHAT_MODEL_ID:-us.meta.llama3-3-70b-instruct-v1:0}
+      RAG_MINIMUM_SIMILARITY: ${RAG_MINIMUM_SIMILARITY:-0.30}
+      AGENT_TIMEOUT_SECONDS: ${AGENT_TIMEOUT_SECONDS:-60}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      # Local development only: `aws login` refreshes its cached token.
+      # ECS uses a task role and must not mount developer credentials.
+      - ${HOME}/.aws:/home/meridian/.aws:rw
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  meridian_pgdata:
