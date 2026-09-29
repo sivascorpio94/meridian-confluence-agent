@@ -1,0 +1,85 @@
+.app-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 32px;
+  background: linear-gradient(135deg, #0b1f3a 0%, #102b4d 100%);
+  color: #eaf1fb;
+  border-bottom: 1px solid #1c3a63;
+}
+
+.app-header__brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.app-header__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #2f6fed;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.app-header__subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #9fb3d1;
+  max-width: 560px;
+  line-height: 1.45;
+}
+
+.app-header__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #c4d3ea;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot--ok {
+  background: #35d07f;
+  box-shadow: 0 0 0 3px rgba(53, 208, 127, 0.2);
+}
+
+.status-dot--down {
+  background: #ef5757;
+  box-shadow: 0 0 0 3px rgba(239, 87, 87, 0.2);
+}
+
+.status-dot--unknown {
+  background: #f4b740;
+  box-shadow: 0 0 0 3px rgba(244, 183, 64, 0.2);
+}
+
+@media (max-width: 720px) {
+  .app-header {
+    flex-direction: column;
+    padding: 16px 20px;
+  }
+}

@@ -1,0 +1,94 @@
+.how-produced {
+  border-top: 1px solid #eef1f5;
+  padding-top: 12px;
+}
+
+.how-produced__toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2559c2;
+  padding: 4px 0;
+}
+
+.how-produced__chevron {
+  display: inline-block;
+  transition: transform 0.15s;
+  font-size: 16px;
+}
+
+.how-produced__chevron--open {
+  transform: rotate(90deg);
+}
+
+.how-produced__body {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.how-produced__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  max-width: 320px;
+}
+
+.how-produced__label {
+  color: #8592a6;
+}
+
+.how-produced__value {
+  color: #1c2733;
+  font-weight: 600;
+}
+
+.how-produced__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.how-produced__table th,
+.how-produced__table td {
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid #f0f2f6;
+  vertical-align: top;
+}
+
+.how-produced__table th {
+  color: #8592a6;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+}
+
+.how-produced__raw {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.how-produced__raw summary {
+  cursor: pointer;
+  color: #5c6b80;
+  font-weight: 600;
+}
+
+.how-produced__raw pre {
+  background: #0f1a2b;
+  color: #d7e2f4;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 11px;
+  max-height: 320px;
+}

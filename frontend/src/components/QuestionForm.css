@@ -1,0 +1,89 @@
+.question-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.question-form form {
+  display: flex;
+  gap: 10px;
+}
+
+.question-form input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 14px;
+  border: 1px solid #d5dce6;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.15s;
+}
+
+.question-form input:focus {
+  border-color: #2f6fed;
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.12);
+}
+
+.question-form input:disabled {
+  background: #f3f5f8;
+}
+
+.question-form button[type="submit"] {
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background: #2f6fed;
+  color: white;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.question-form button[type="submit"]:hover:not(:disabled) {
+  background: #2559c2;
+}
+
+.question-form button[type="submit"]:disabled {
+  background: #a9bee8;
+  cursor: not-allowed;
+}
+
+.question-form__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.question-form__suggestions-label {
+  font-size: 12px;
+  color: #8592a6;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 2px;
+}
+
+.suggestion-chip {
+  font-size: 12.5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #d5dce6;
+  background: #f8fafc;
+  color: #33455c;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.suggestion-chip:hover:not(:disabled) {
+  background: #eaf0fe;
+  border-color: #b7cbf5;
+  color: #2559c2;
+}
+
+.suggestion-chip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,56 @@
+.answer-panel__text {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #1c2733;
+  margin: 0 0 12px;
+  white-space: pre-wrap;
+}
+
+.citation-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: #eaf0fe;
+  color: #2559c2;
+  margin: 0 2px;
+  vertical-align: baseline;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.inline-code {
+  font-family: "SF Mono", Consolas, monospace;
+  font-size: 12.5px;
+  background: #f3f5f8;
+  color: #3a4658;
+  padding: 1px 6px;
+  border-radius: 5px;
+  border: 1px solid #e3e8ef;
+  white-space: nowrap;
+}
+
+.citation-chip--outline {
+  background: #fff;
+  border: 1px solid #cddafb;
+}
+
+.answer-panel__citation-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed #e3e8ef;
+}
+
+.answer-panel__citation-label {
+  font-size: 12px;
+  color: #8592a6;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+}

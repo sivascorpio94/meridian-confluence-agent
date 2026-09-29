@@ -55,11 +55,19 @@ recommends the canonical procedure instead of blindly trusting similarity.
 
 ## Portfolio resources
 
+- [Live portfolio case study (GitHub Pages)](https://sivascorpio94.github.io/meridian-confluence-agent/)
 - [Architecture and security boundaries](docs/architecture.md)
 - [Portfolio case study](docs/portfolio-case-study.md)
 - [Two-minute demonstration script](docs/demo-script.md)
 - [Interview explanation](docs/interview-story.md)
 - [Screenshot checklist](docs/screenshots/README.md)
+
+## Frontend
+
+A React + TypeScript UI lives in [frontend/](frontend/) and talks to the
+backend's single `POST /agent/ask` endpoint — rendering the grounded answer,
+citations, reranked evidence, agent tool-call timeline, and confidence/warning
+states. See [frontend/README.md](frontend/README.md) for setup.
 
 ## Architecture
 

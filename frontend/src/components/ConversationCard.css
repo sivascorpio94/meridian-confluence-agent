@@ -1,0 +1,40 @@
+.conversation-card {
+  background: #fff;
+  border: 1px solid #e3e8ef;
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 2px rgba(20, 30, 50, 0.04);
+}
+
+.conversation-card__question {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+  color: #0b1f3a;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.conversation-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.conversation-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.section-heading {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #55627a;
+  margin: 0 0 10px;
+}

@@ -1,0 +1,99 @@
+.agent-timeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.agent-timeline__item {
+  display: flex;
+  gap: 12px;
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.agent-timeline__item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 24px;
+  bottom: 0;
+  width: 1px;
+  background: #dfe5ee;
+}
+
+.agent-timeline__marker {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #2f6fed;
+  color: white;
+  font-size: 11.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.agent-timeline__item--error .agent-timeline__marker {
+  background: #ef5757;
+}
+
+.agent-timeline__body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.agent-timeline__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.agent-timeline__tool {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1c2733;
+}
+
+.agent-timeline__args {
+  font-size: 11.5px;
+  color: #5c6b80;
+  background: #f3f5f8;
+  padding: 3px 7px;
+  border-radius: 5px;
+  width: fit-content;
+  font-family: "SF Mono", Consolas, monospace;
+}
+
+.agent-timeline__duration {
+  font-size: 11.5px;
+  color: #8592a6;
+}
+
+.badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.badge--muted {
+  background: #eef1f5;
+  color: #71809a;
+}
+
+.badge--error {
+  background: #fdeaea;
+  color: #c23a3a;
+}

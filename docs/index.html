@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Siva Kasina | Personal Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Colour palette for the site */
+      --primary-color: #4a90e2;      /* cool blue accent */
+      --secondary-color: #7F00FF;    /* vibrant purple accent */
+      --dark-color: #0A192F;         /* very dark blue for contrast */
+      --light-color: #F5F5F5;        /* off‑white for subtle backgrounds */
+      --font-family-sans: 'Poppins', sans-serif;
+      --font-family-body: 'Roboto', sans-serif;
+      --max-width: 1200px;
+      /* Extra tokens for the Meridian case study — derived from the palette above */
+      --success-color: #2fa66b;
+      --warn-color: #c9720c;
+      --warn-bg: #fdf3e4;
+      --card-border: #e6e6e6;
+    }
+
+    /* Reset margins and padding */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family-body);
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--light-color);
+      scroll-behavior: smooth;
+    }
+
+    /* Fixed navigation bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(10, 25, 47, 0.9);
+      padding: 0.5rem 0;
+      z-index: 1000;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style-type: none;
+    }
+    nav ul li {
+      margin: 0 1rem;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-family: var(--font-family-sans);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Hero header area */
+    header {
+      background-image: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('hero.png');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    header .container {
+      max-width: var(--max-width);
+      padding: 0 1rem;
+    }
+    header h1 {
+      font-family: var(--font-family-sans);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Generic section styling */
+    section {
+      padding: 4rem 1rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .about, .experience, .skills, .projects, .contact {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 3rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    .section-title {
+      font-family: var(--font-family-sans);
+      font-size: 2rem;
+      color: var(--dark-color);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* About section layout */
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .about-image {
+      flex: 1;
+      min-width: 250px;
+      text-align: center;
+    }
+    .about-image img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--primary-color);
+    }
+    .about-text {
+      flex: 2;
+      min-width: 300px;
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* Experience section layout */
+    .experience-item {
+      margin-bottom: 2rem;
+    }
+    .experience-item h3 {
+      font-family: var(--font-family-sans);
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+    .experience-item span {
+      display: block;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    .experience-item ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .experience-item ul li {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Skills section layout */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .skill {
+      flex: 1 1 calc(33.333% - 1.5rem);
+      background-color: var(--light-color);
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .skill h4 {
+      font-family: var(--font-family-sans);
+      font-size: 1.2rem;
+      color: var(--dark-color);
+    }
+    .skill p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 10px;
+      margin-top: 0.5rem;
+    }
+    .progress-bar div {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      width: 0%;
+    }
+
+    /* Projects section layout */
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .project-card {
+      flex: 1 1 calc(33.333% - 1.5rem);
+      background-color: var(--light-color);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .project-card .card-content {
+      padding: 1rem;
+    }
+    .project-card h4 {
+      margin-bottom: 0.5rem;
+      font-family: var(--font-family-sans);
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+    .project-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .featured-project-card {
+      background: linear-gradient(160deg, var(--dark-color), #132a4c);
+      border: 1px solid rgba(74, 144, 226, 0.4);
+    }
+    .featured-project-card .card-content {
+      padding: 1.5rem;
+    }
+    .featured-badge {
+      display: inline-block;
+      font-family: var(--font-family-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #cfe3fb;
+      background: rgba(74, 144, 226, 0.18);
+      border: 1px solid rgba(74, 144, 226, 0.5);
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 0.75rem;
+    }
+    .featured-project-card h4 {
+      color: #fff;
+      font-size: 1.3rem;
+    }
+    .featured-project-card p {
+      color: #cfe3fb;
+    }
+    .featured-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--primary-color);
+      font-family: var(--font-family-sans);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .featured-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact section layout */
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .contact input,
+    .contact textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: var(--font-family-body);
+      font-size: 1rem;
+    }
+    .contact button {
+      padding: 0.75rem;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact button:hover {
+      background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--dark-color);
+      color: #fff;
+    }
+
+    /* ================= Meridian case study ================= */
+    .meridian-case-study .cs-subtitle {
+      max-width: 760px;
+      margin: -0.5rem auto 1.25rem;
+      text-align: center;
+      font-family: var(--font-family-sans);
+      color: var(--primary-color);
+      font-size: 1.08rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .meridian-case-study .cs-summary {
+      max-width: 760px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+      color: #444;
+    }
+    .cs-disclaimer {
+      font-size: 0.8rem;
+      color: #808080;
+      font-style: italic;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .cs-cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .cs-btn {
+      display: inline-block;
+      padding: 0.75rem 1.6rem;
+      border-radius: 6px;
+      font-family: var(--font-family-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .cs-btn-primary {
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      color: #fff;
+    }
+    .cs-btn-primary:hover {
+      background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    }
+    .cs-btn-secondary {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    .cs-btn-secondary:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .cs-block {
+      margin: 2.75rem 0 0;
+      padding-top: 2.25rem;
+      border-top: 1px solid #ececec;
+    }
+    .cs-block:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    .cs-heading {
+      font-family: var(--font-family-sans);
+      font-size: 1.4rem;
+      color: var(--dark-color);
+      margin-bottom: 1rem;
+    }
+    .cs-eyebrow {
+      display: block;
+      font-family: var(--font-family-sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      margin-bottom: 0.4rem;
+    }
+    .cs-two-col {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .cs-two-col > div {
+      flex: 1;
+      min-width: 280px;
+    }
+    .cs-mock {
+      background: var(--light-color);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .cs-mock-caption {
+      font-size: 0.72rem;
+      color: #8a8a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+      font-family: var(--font-family-sans);
+      font-weight: 700;
+    }
+    .cs-answer-q {
+      font-weight: 600;
+      color: var(--dark-color);
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .cs-answer-text {
+      color: #333;
+      margin-bottom: 0.75rem;
+      line-height: 1.65;
+      font-size: 0.92rem;
+    }
+    .cs-chip {
+      display: inline-block;
+      background: rgba(74, 144, 226, 0.12);
+      color: #2a5db0;
+      border: 1px solid rgba(74, 144, 226, 0.35);
+      border-radius: 6px;
+      padding: 0 0.45rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: 'Courier New', monospace;
+      margin: 0 2px;
+      white-space: nowrap;
+    }
+    .cs-cited-row {
+      font-size: 0.78rem;
+      color: #666;
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed #ddd;
+    }
+    .cs-warning {
+      background: var(--warn-bg);
+      border: 1px solid #f0d9b5;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+    .cs-warning-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--warn-color);
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cs-warning-title {
+      font-weight: 700;
+      color: #8a5406;
+      margin-bottom: 0.4rem;
+      font-size: 0.92rem;
+    }
+    .cs-warning ul {
+      margin-left: 1.1rem;
+      color: #7a5a10;
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+    .cs-timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .cs-timeline li {
+      display: flex;
+      gap: 0.75rem;
+      padding-bottom: 1rem;
+    }
+    .cs-step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cs-step-title {
+      font-weight: 600;
+      color: var(--dark-color);
+      font-size: 0.9rem;
+    }
+    .cs-step-meta {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 0.15rem;
+    }
+    .cs-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+    .cs-metric-card {
+      background: var(--light-color);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1rem 0.75rem;
+      text-align: center;
+    }
+    .cs-metric-value {
+      font-family: var(--font-family-sans);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    .cs-metric-label {
+      font-size: 0.74rem;
+      color: #666;
+      margin-top: 0.3rem;
+      line-height: 1.4;
+    }
+    .cs-capabilities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1rem;
+    }
+    .cs-cap-item {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      background: var(--light-color);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      color: #333;
+    }
+    .cs-cap-check {
+      color: var(--success-color);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .cs-result {
+      background: linear-gradient(135deg, rgba(74, 144, 226, 0.08), rgba(127, 0, 255, 0.06));
+      border-left: 4px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+    .cs-result p {
+      margin-bottom: 0.75rem;
+      color: #333;
+    }
+    .cs-result-scores {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .cs-score-label {
+      font-size: 0.74rem;
+      color: #666;
+    }
+    .cs-score-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: var(--font-family-sans);
+    }
+    .cs-score-before { color: #999; }
+    .cs-score-good { color: var(--success-color); }
+    .cs-score-bad { color: var(--warn-color); }
+    .cs-decision {
+      margin-bottom: 1.4rem;
+    }
+    .cs-decision:last-child { margin-bottom: 0; }
+    .cs-decision h4 {
+      font-family: var(--font-family-sans);
+      color: var(--primary-color);
+      font-size: 1.02rem;
+      margin-bottom: 0.3rem;
+    }
+    .cs-decision p {
+      color: #444;
+      font-size: 0.92rem;
+    }
+    .cs-deploy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+    }
+    .cs-deploy-card {
+      background: var(--light-color);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .cs-deploy-card h4 {
+      font-family: var(--font-family-sans);
+      color: var(--dark-color);
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+    .cs-deploy-card ul {
+      margin-left: 1.1rem;
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.75;
+    }
+    .cs-diagram-wrap {
+      overflow-x: auto;
+      margin-top: 1.25rem;
+      background: var(--light-color);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .cs-diagram-wrap svg {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+    .cs-diagram-legend {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: #555;
+      flex-wrap: wrap;
+    }
+    .cs-legend-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+    .cs-tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .cs-tech-chip {
+      background: var(--dark-color);
+      color: #cfe3fb;
+      font-size: 0.8rem;
+      font-family: 'Courier New', monospace;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+    }
+    .cs-final-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ececec;
+    }
+    .cs-final-cta p {
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 1.25rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+      }
+      .skill {
+        flex: 1 1 calc(50% - 1.5rem);
+      }
+      .project-card {
+        flex: 1 1 calc(50% - 1.5rem);
+      }
+      .cs-two-col {
+        flex-direction: column;
+      }
+      .cs-deploy-grid {
+        grid-template-columns: 1fr;
+      }
+      .cs-result-scores {
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+      }
+      .skill {
+        flex: 1 1 100%;
+      }
+      .project-card {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar linking to each section -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#meridian">Meridian Case Study</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero section with name and tagline -->
+  <header id="home">
+    <div class="container">
+      <h1>Siva Kasina</h1>
+      <p>SQL &amp; BI Developer</p>
+      <p>Turning data into insights and value</p>
+    </div>
+  </header>
+
+  <!-- About section introducing the individual -->
+  <section id="about" class="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <!-- Placeholder portrait; users can replace hero.png with their own photo -->
+        <img src="hero.png" alt="Siva Kasina portrait placeholder">
+      </div>
+      <div class="about-text">
+        <p>Hello! I'm Siva Kasina, a passionate SQL Database Administrator and Business Intelligence developer with experience in designing, developing and maintaining data‑driven solutions that empower organizations to make informed decisions. I specialize in building robust data architectures, optimizing database performance, and crafting insightful dashboards that tell compelling stories through data.</p>
+        <p>With a strong foundation in MS SQL Server, SSIS, SSRS and Power BI, I enjoy transforming complex datasets into actionable insights. I'm continually exploring new tools and methodologies to enhance data analytics and drive business growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience section outlining career history -->
+  <section id="experience" class="experience">
+    <h2 class="section-title">Experience</h2>
+    <div class="experience-item">
+      <h3>SQL Database Administrator &amp; BI Developer</h3>
+      <span>Concur Technologies (SAP) – 2018&nbsp;– Present</span>
+      <ul>
+        <li>Manage and maintain enterprise‑level SQL Server databases, ensuring high availability and performance.</li>
+        <li>Develop ETL processes using SSIS to consolidate data from various sources into data warehouses.</li>
+        <li>Create interactive reports and dashboards using SSRS and Power BI to support business analysis.</li>
+        <li>Collaborate with stakeholders to gather requirements and translate them into technical solutions.</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h3>Database Analyst</h3>
+      <span>Tech‑Intelleon Digital Solutions – 2015&nbsp;– 2018</span>
+      <ul>
+        <li>Designed and implemented database schemas and data models to support application development.</li>
+        <li>Performed performance tuning and optimization of complex SQL queries and stored procedures.</li>
+        <li>Participated in data migration projects, ensuring data integrity and accuracy.</li>
+        <li>Assisted in the development of business intelligence solutions for internal reporting.</li>
+      </ul>
+    </div>
+    <div class="experience-item">
+      <h3>Junior SQL Developer</h3>
+      <span>Global IT Solutions – 2013&nbsp;– 2015</span>
+      <ul>
+        <li>Supported the development team by writing SQL scripts and stored procedures.</li>
+        <li>Assisted in maintaining database servers and troubleshooting performance issues.</li>
+        <li>Worked closely with senior developers to learn best practices in database design.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills section with progress indicators -->
+  <section id="skills" class="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-list">
+      <div class="skill">
+        <h4>SQL Server</h4>
+        <div class="progress-bar"><div style="width: 90%;"></div></div>
+        <p>Expert in database design, administration, and performance tuning.</p>
+      </div>
+      <div class="skill">
+        <h4>SSIS/SSRS</h4>
+        <div class="progress-bar"><div style="width: 85%;"></div></div>
+        <p>Experienced in ETL development and report creation.</p>
+      </div>
+      <div class="skill">
+        <h4>Power BI</h4>
+        <div class="progress-bar"><div style="width: 80%;"></div></div>
+        <p>Proficient in building interactive dashboards and data visualizations.</p>
+      </div>
+      <div class="skill">
+        <h4>Data Warehousing</h4>
+        <div class="progress-bar"><div style="width: 75%;"></div></div>
+        <p>Skilled in designing and implementing star/snowflake schemas.</p>
+      </div>
+      <div class="skill">
+        <h4>Azure Data Services</h4>
+        <div class="progress-bar"><div style="width: 70%;"></div></div>
+        <p>Knowledge of Azure SQL Database, Synapse Analytics, and Data Factory.</p>
+      </div>
+      <div class="skill">
+        <h4>Python</h4>
+        <div class="progress-bar"><div style="width: 60%;"></div></div>
+        <p>Experience in data analysis and scripting for automation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects section showcasing sample projects -->
+  <section id="projects" class="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card featured-project-card">
+        <div class="card-content">
+          <span class="featured-badge">Featured &middot; Generative AI / Forward Deployed Engineering</span>
+          <h4>Meridian &mdash; Trust-Aware Confluence AI Agent</h4>
+          <p>An enterprise RAG and MCP agent that finds authoritative documentation, detects conflicting instructions, and generates grounded answers with live citations.</p>
+          <a class="featured-link" href="#meridian">Read the full case study &rarr;</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="hero.png" alt="Project 1">
+        <div class="card-content">
+          <h4>Enterprise Data Warehouse</h4>
+          <p>Designed and implemented a scalable data warehouse integrating data from multiple sources, enabling company‑wide analytics and reporting.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="hero.png" alt="Project 2">
+        <div class="card-content">
+          <h4>Sales Analytics Dashboard</h4>
+          <p>Developed Power BI dashboards that provided real‑time insights into sales performance, customer trends, and revenue forecasts.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="hero.png" alt="Project 3">
+        <div class="card-content">
+          <h4>ETL Automation Suite</h4>
+          <p>Created a suite of SSIS packages to automate data extraction, transformation, and loading processes, reducing manual workloads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meridian case study: featured Generative AI / Forward Deployed Engineering project -->
+  <section id="meridian" class="meridian-case-study about">
+    <h2 class="section-title">Meridian &mdash; Trust-Aware Confluence AI Agent</h2>
+    <p class="cs-subtitle">An enterprise RAG and MCP agent that finds authoritative documentation, detects conflicting instructions, and generates grounded answers with live citations.</p>
+    <p class="cs-summary">Meridian combines semantic retrieval with explicit documentation governance. It synchronizes governed pages from Confluence Cloud, generates embeddings with Amazon Titan, stores them in PostgreSQL with pgvector, and produces grounded answers using Llama&nbsp;3.3 through AWS Bedrock. A custom MCP server exposes knowledge-search, grounded-answer, page-reading, and conflict-detection tools to the agent.</p>
+    <p class="cs-disclaimer">Meridian Financial Group and all platform content referenced in this project are fictional. The project contains no employer or client data.</p>
+    <div class="cs-cta-row">
+      <a class="cs-btn cs-btn-primary" href="https://github.com/sivascorpio94/meridian-confluence-agent" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <a class="cs-btn cs-btn-secondary" href="#meridian-stack">View Technology Stack</a>
+    </div>
+
+    <!-- Visual 1: final grounded answer with canonical citation -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">Product view</span>
+      <h3 class="cs-heading">Grounded answer with live citations</h3>
+      <div class="cs-mock">
+        <div class="cs-mock-caption">Illustrative UI &mdash; final answer panel</div>
+        <p class="cs-answer-q">Does the Mosaic reporting team have read-only access to the trading ledger?</p>
+        <p class="cs-answer-text">According to <span class="cs-chip">page-01</span>, the <code>MOSAIC_UI_VIEWER</code> role grants read-only access to account views, transaction history, and case notes, but it does not specifically mention the trading ledger. Refer to <span class="cs-chip">page-03</span> for the full role catalog.</p>
+        <div class="cs-cited-row">Cited pages: <span class="cs-chip">page-01</span> <span class="cs-chip">page-03</span> <span class="cs-chip">page-09</span></div>
+      </div>
+    </div>
+
+    <!-- Problem and solution -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">Why it matters</span>
+      <h3 class="cs-heading">The problem</h3>
+      <p>Enterprise Confluence spaces often contain duplicate procedures, old guides, draft documentation, FAQs, audit reports, and inconsistent terminology. Traditional keyword search returns several pages, while basic vector search ranks documents by semantic similarity without determining whether those documents are authoritative. That creates a serious problem: the most relevant-looking page may contain outdated instructions.</p>
+    </div>
+    <div class="cs-block">
+      <h3 class="cs-heading">The solution</h3>
+      <p>I built Meridian, a trust-aware Confluence AI agent that separates relevance from authority. The agent retrieves semantically related documentation, then applies an explainable governance policy based on document status, authority, type, freshness, and supersession relationships. Canonical procedures are promoted, while stale, draft, under-review, and superseded pages remain visible as clearly identified warnings. The final answer is generated only from the recommended evidence and includes citations to the original Confluence pages.</p>
+    </div>
+
+    <!-- Architecture diagram -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">System design</span>
+      <h3 class="cs-heading">Architecture</h3>
+      <p>The ingestion pipeline synchronizes pages from Confluence Cloud, maps governance labels into retrieval metadata, creates heading-aware chunks, generates Titan embeddings, and stores the results in PostgreSQL with pgvector. At query time, the React interface calls FastAPI, which drives a Bedrock tool-calling agent against a custom MCP server. The trust-aware RAG pipeline reranks retrieved evidence and splits it into recommended and conflicting branches before Llama&nbsp;3.3 generates a grounded, cited answer.</p>
+      <div class="cs-diagram-wrap">
+        <svg viewBox="0 0 840 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Meridian architecture diagram showing the ingestion pipeline from Confluence Cloud to PostgreSQL with pgvector, and the query path from the portfolio user through React, FastAPI, the Bedrock tool-calling agent, the MCP server and trust-aware RAG, branching into recommended and conflicting evidence before grounded generation with Llama 3.3.">
+          <defs>
+            <marker id="cs-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#4a90e2"></path>
+            </marker>
+            <marker id="cs-arrow-good" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#2fa66b"></path>
+            </marker>
+            <marker id="cs-arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#c9720c"></path>
+            </marker>
+          </defs>
+
+          <!-- column labels -->
+          <text x="170" y="20" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#4a90e2">INGESTION PIPELINE</text>
+          <text x="660" y="20" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#4a90e2">QUERY PATH</text>
+
+          <!-- Left column: ingestion -->
+          <g font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#cfe3fb" text-anchor="middle">
+            <rect x="40" y="40" width="260" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="170" y="73">Confluence Cloud</text>
+
+            <rect x="40" y="136" width="260" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="170" y="169">Incremental Synchronization</text>
+
+            <rect x="40" y="232" width="260" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="170" y="265">Governance-Label Mapping</text>
+
+            <rect x="40" y="328" width="260" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="170" y="361">Heading-Aware Chunking</text>
+
+            <rect x="40" y="424" width="260" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="170" y="457">Titan Embeddings V2</text>
+
+            <rect x="40" y="520" width="260" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="170" y="553">PostgreSQL / pgvector</text>
+          </g>
+
+          <!-- Left column arrows -->
+          <line x1="170" y1="96" x2="170" y2="132" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="170" y1="192" x2="170" y2="228" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="170" y1="288" x2="170" y2="324" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="170" y1="384" x2="170" y2="420" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="170" y1="480" x2="170" y2="516" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+
+          <!-- Right column: query path -->
+          <g font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#cfe3fb" text-anchor="middle">
+            <rect x="520" y="40" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="660" y="73">Portfolio User</text>
+
+            <rect x="520" y="116" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="660" y="149">React Interface</text>
+
+            <rect x="520" y="192" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="660" y="225">FastAPI</text>
+
+            <rect x="520" y="268" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="660" y="301">Bedrock Tool-Calling Agent</text>
+
+            <rect x="520" y="344" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="660" y="377">Custom MCP Server</text>
+
+            <rect x="520" y="420" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.55"></rect>
+            <text x="660" y="443">Trust-Aware RAG</text>
+            <text x="660" y="461" font-size="11" font-weight="500">(governance reranking)</text>
+          </g>
+
+          <!-- Branch: recommended vs conflicting evidence -->
+          <rect x="520" y="496" width="132" height="48" rx="9" fill="#0A192F" stroke="#2fa66b" stroke-width="1.5"></rect>
+          <text x="586" y="516" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="700" fill="#cfe3fb">Recommended</text>
+          <text x="586" y="530" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="700" fill="#cfe3fb">Evidence</text>
+
+          <rect x="668" y="496" width="132" height="48" rx="9" fill="#0A192F" stroke="#c9720c" stroke-width="1.5"></rect>
+          <text x="734" y="516" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="700" fill="#cfe3fb">Conflicting</text>
+          <text x="734" y="530" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="700" fill="#cfe3fb">Evidence</text>
+
+          <!-- Final generation box -->
+          <rect x="520" y="572" width="280" height="56" rx="10" fill="#0A192F" stroke="#4a90e2" stroke-opacity="0.7" stroke-width="1.5"></rect>
+          <text x="660" y="594" text-anchor="middle" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#cfe3fb">pgvector + Llama 3.3</text>
+          <text x="660" y="611" text-anchor="middle" font-family="Poppins, sans-serif" font-size="11" font-weight="500" fill="#cfe3fb">(grounded answer)</text>
+
+          <!-- Right column vertical arrows -->
+          <line x1="660" y1="96" x2="660" y2="112" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="660" y1="172" x2="660" y2="188" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="660" y1="248" x2="660" y2="264" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="660" y1="324" x2="660" y2="340" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+          <line x1="660" y1="400" x2="660" y2="416" stroke="#4a90e2" stroke-width="2" marker-end="url(#cs-arrow)"></line>
+
+          <!-- Fan-out into recommended / conflicting -->
+          <path d="M660,476 L586,492" fill="none" stroke="#2fa66b" stroke-width="2" marker-end="url(#cs-arrow-good)"></path>
+          <path d="M660,476 L734,492" fill="none" stroke="#c9720c" stroke-width="2" marker-end="url(#cs-arrow-warn)"></path>
+
+          <!-- Converge into final generation box -->
+          <path d="M586,544 L640,568" fill="none" stroke="#2fa66b" stroke-width="2" marker-end="url(#cs-arrow-good)"></path>
+          <path d="M734,544 L690,568" fill="none" stroke="#c9720c" stroke-width="2" marker-end="url(#cs-arrow-warn)"></path>
+
+          <!-- Ingestion store feeds the query-time vector search -->
+          <path d="M300,548 H410 V600 H516" fill="none" stroke="#4a90e2" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#cs-arrow)"></path>
+        </svg>
+        <div class="cs-diagram-legend">
+          <span><span class="cs-legend-dot" style="background:#4a90e2"></span>Pipeline stage</span>
+          <span><span class="cs-legend-dot" style="background:#2fa66b"></span>Recommended evidence</span>
+          <span><span class="cs-legend-dot" style="background:#c9720c"></span>Conflicting / stale evidence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual 3: MCP agent tool activity -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">Agent behavior</span>
+      <h3 class="cs-heading">Tool-calling agent activity</h3>
+      <div class="cs-mock">
+        <div class="cs-mock-caption">Illustrative UI &mdash; MCP tool-call timeline</div>
+        <ul class="cs-timeline">
+          <li>
+            <span class="cs-step-num">1</span>
+            <div>
+              <div class="cs-step-title">Ran grounded RAG pipeline (answer_question)</div>
+              <div class="cs-step-meta">2,056 ms</div>
+            </div>
+          </li>
+          <li>
+            <span class="cs-step-num">2</span>
+            <div>
+              <div class="cs-step-title">Checked for document conflicts (check_document_conflicts)</div>
+              <div class="cs-step-meta">580 ms</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Key capabilities -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">What it does</span>
+      <h3 class="cs-heading">Key capabilities</h3>
+      <div class="cs-capabilities">
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Live Confluence Cloud REST synchronization</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Governance-aware document ranking</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Heading-aware chunking</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Titan Text Embeddings V2</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>PostgreSQL and pgvector</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Explainable scoring reasons</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Low-confidence rejection</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Llama 3.3 grounded generation</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Custom MCP server and tool-calling agent</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>FastAPI and React interface</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Incremental refresh and safe pruning</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>Dockerized local deployment</div>
+        <div class="cs-cap-item"><span class="cs-cap-check">&#10003;</span>66 automated tests</div>
+      </div>
+    </div>
+
+    <!-- Visual 2: conflict warning -->
+    <!-- Trust-ranking example -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">Design principle</span>
+      <h3 class="cs-heading">Relevance is not the same as trust</h3>
+      <div class="cs-result">
+        <p>For one access question, a superseded Confluence guide received a raw semantic score of <strong>0.7594</strong>, while the canonical procedure received only <strong>0.5691</strong>. A basic vector-search system would likely recommend the outdated guide.</p>
+        <p>Meridian applied its governance policy and raised the canonical procedure to a final score of <strong>0.8191</strong>, while reducing the superseded guide to <strong>0.5194</strong> and displaying it as a warning.</p>
+        <div class="cs-result-scores">
+          <div class="cs-score">
+            <div class="cs-score-label">Canonical &mdash; raw semantic</div>
+            <div class="cs-score-value cs-score-before">0.5691</div>
+          </div>
+          <div class="cs-score">
+            <div class="cs-score-label">Canonical &mdash; after reranking</div>
+            <div class="cs-score-value cs-score-good">0.8191</div>
+          </div>
+          <div class="cs-score">
+            <div class="cs-score-label">Superseded &mdash; raw semantic</div>
+            <div class="cs-score-value cs-score-before">0.7594</div>
+          </div>
+          <div class="cs-score">
+            <div class="cs-score-label">Superseded &mdash; after reranking</div>
+            <div class="cs-score-value cs-score-bad">0.5194</div>
+          </div>
+        </div>
+      </div>
+      <div class="cs-mock" style="margin-top: 1.25rem;">
+        <div class="cs-mock-caption">Illustrative UI &mdash; conflict warning panel</div>
+        <div class="cs-warning">
+          <span class="cs-warning-icon">!</span>
+          <div>
+            <div class="cs-warning-title">Review before relying on this answer</div>
+            <ul>
+              <li>page-22: document status is under review</li>
+              <li>page-02: page is superseded</li>
+              <li>page-02: page may be stale</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metrics -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">By the numbers</span>
+      <h3 class="cs-heading">Measurable results</h3>
+      <div class="cs-metrics-grid">
+        <div class="cs-metric-card"><div class="cs-metric-value">25</div><div class="cs-metric-label">Adversarial evaluation pages</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">152</div><div class="cs-metric-label">Frozen-corpus evaluation chunks</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">14</div><div class="cs-metric-label">Live Confluence chunks</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">1,024</div><div class="cs-metric-label">Embedding dimensions</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">66</div><div class="cs-metric-label">Automated tests</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">14/14</div><div class="cs-metric-label">Unchanged embeddings skipped on refresh</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">0.2&ndash;0.3s</div><div class="cs-metric-label">Typical retrieval latency</div></div>
+        <div class="cs-metric-card"><div class="cs-metric-value">3&ndash;10s</div><div class="cs-metric-label">Typical complete answer time</div></div>
+      </div>
+    </div>
+
+    <!-- Engineering decisions -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">How it was built</span>
+      <h3 class="cs-heading">Engineering decisions</h3>
+      <div class="cs-two-col">
+        <div>
+          <div class="cs-decision">
+            <h4>Governance metadata as a first-class signal</h4>
+            <p>Status, authority, document type, freshness, and supersession relationships are modeled explicitly, so ranking decisions are explainable rather than a black box similarity score.</p>
+          </div>
+          <div class="cs-decision">
+            <h4>Heading-aware chunking</h4>
+            <p>Chunks are split along Markdown heading boundaries with controlled overlap, preserving page title and section path for stable, human-readable citations.</p>
+          </div>
+          <div class="cs-decision">
+            <h4>Low-confidence rejection before generation</h4>
+            <p>A raw semantic-similarity gate (0.30) runs before any Bedrock call. Below the threshold, the agent returns an insufficient-evidence result instead of guessing, avoiding unnecessary generation cost.</p>
+          </div>
+        </div>
+        <div>
+          <div class="cs-decision">
+            <h4>Content fingerprinting for incremental refresh</h4>
+            <p>Each chunk is fingerprinted so unchanged content is never re-embedded. A no-change refresh across all 14 live chunks skipped every embedding call.</p>
+          </div>
+          <div class="cs-decision">
+            <h4>Shared knowledge service across REST and MCP</h4>
+            <p>FastAPI and the custom MCP server both call the same underlying knowledge service, so retrieval, reranking, and generation logic is implemented once.</p>
+          </div>
+          <div class="cs-decision">
+            <h4>Bounded, observable agent loop</h4>
+            <p>The tool-calling agent enforces step and token limits and de-duplicates repeated tool calls, with every step, score, and timing surfaced back to the UI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technology stack -->
+    <div class="cs-block" id="meridian-stack">
+      <span class="cs-eyebrow">Stack</span>
+      <h3 class="cs-heading">Technology stack</h3>
+      <div class="cs-tech-chips">
+        <span class="cs-tech-chip">Python</span>
+        <span class="cs-tech-chip">FastAPI</span>
+        <span class="cs-tech-chip">React</span>
+        <span class="cs-tech-chip">MCP</span>
+        <span class="cs-tech-chip">AWS Bedrock</span>
+        <span class="cs-tech-chip">Llama 3.3 70B</span>
+        <span class="cs-tech-chip">Amazon Titan Text Embeddings V2</span>
+        <span class="cs-tech-chip">PostgreSQL</span>
+        <span class="cs-tech-chip">pgvector</span>
+        <span class="cs-tech-chip">Docker</span>
+        <span class="cs-tech-chip">Confluence Cloud REST API</span>
+        <span class="cs-tech-chip">boto3</span>
+        <span class="cs-tech-chip">psycopg</span>
+      </div>
+    </div>
+
+    <!-- Security and production deployment -->
+    <div class="cs-block">
+      <span class="cs-eyebrow">Operations</span>
+      <h3 class="cs-heading">Security and production deployment</h3>
+      <p>The portfolio environment runs locally in Docker so it doesn't leave cloud infrastructure idling between demos. The container topology mirrors a production-shaped deployment target:</p>
+      <div class="cs-deploy-grid">
+        <div class="cs-deploy-card">
+          <h4>Local portfolio environment</h4>
+          <ul>
+            <li>Dockerized FastAPI backend</li>
+            <li>Dockerized PostgreSQL with pgvector</li>
+            <li>Local MCP server over stdio</li>
+            <li>No idle cloud spend between demos</li>
+          </ul>
+        </div>
+        <div class="cs-deploy-card">
+          <h4>Production target</h4>
+          <ul>
+            <li>ECS Fargate for the API and agent</li>
+            <li>RDS PostgreSQL with pgvector</li>
+            <li>IAM task roles for least-privilege Bedrock access</li>
+            <li>Secrets Manager for credentials</li>
+            <li>HTTPS at the load balancer</li>
+            <li>CloudWatch for logs and metrics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final call to action -->
+    <div class="cs-final-cta">
+      <p>Full implementation, architecture docs, evaluation corpus, Docker configuration, and automated tests are on GitHub.</p>
+      <a class="cs-btn cs-btn-primary" href="https://github.com/sivascorpio94/meridian-confluence-agent" target="_blank" rel="noopener noreferrer">View Meridian on GitHub</a>
+    </div>
+  </section>
+
+  <!-- Contact section with a simple form -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+    <form>
+      <input type="text" placeholder="Your Name" name="name" required>
+      <input type="email" placeholder="Your Email" name="email" required>
+      <textarea rows="5" placeholder="Your Message" name="message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer showing copyright -->
+  <footer>
+    <p>&copy; 2025 Siva Kasina. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // When the page loads animate skill bars from zero to their respective values
+    window.addEventListener('DOMContentLoaded', function() {
+      var bars = document.querySelectorAll('.progress-bar div');
+      bars.forEach(function(bar) {
+        var finalWidth = bar.style.width;
+        bar.style.width = '0';
+        // delay each bar slightly for a staggered effect
+        setTimeout(function() {
+          bar.style.width = finalWidth;
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
